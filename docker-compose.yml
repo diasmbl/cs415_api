@@ -1,0 +1,10 @@
+
+services:
+  cs415-api:
+    build: ./
+    image: image_cs415_api
+    container_name: container_cs415_api
+    restart: always
+    shm_size: 128mb
+    ports:
+      - 80:80

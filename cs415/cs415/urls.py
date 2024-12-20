@@ -56,5 +56,6 @@ urlpatterns = [
     path('users/phone/<int:user_phone_id>', SingleUserPhoneAPIView.as_view()),
     path('users/info/<int:user_info_id>', SingleUserInfoAPIView.as_view()),
     path('page/data/<int:page_data_id>', SinglePageDataAPIView.as_view()),
+    path('api/webuser/', WebUserAPIView.as_view(), name='webuser'),
 ]
 

@@ -13,6 +13,7 @@ from cs415.models import (
 )
 from cs415.serializers import (
     WebUserSerializer,
+    WebUserSerializerPost,
     AddressTypeSerializer,
     UserAddressSerializer,
     UserInfoSerializer,
@@ -29,11 +30,11 @@ class WebUserAPIView(APIView):
         users = Webuser.objects.all()
         serializer = WebUserSerializer(users, many=True)
         return Response(serializer.data)
-    @swagger_auto_schema(operation_description= "Add New User", request_body=WebUserSerializer)
+    @swagger_auto_schema(operation_description= "Add New User", request_body=WebUserSerializerPost)
     def post(self, request, *args, **kwargs):
         request.data['created_date'] = str(datetime.now())
         request.data['is_active'] = 1
-        serializer = WebUserSerializer(data=request.data)
+        serializer = WebUserSerializerPost(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

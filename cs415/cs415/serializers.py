@@ -15,6 +15,11 @@ class WebUserSerializer(serializers.ModelSerializer):
         model = Webuser
         fields = ['web_user_id', 'first_name', 'last_name', 'email', 'created_date', 'is_active', 'last_login']  # Exclude password
 
+class WebUserSerializerPost(serializers.ModelSerializer):
+    class Meta:
+        model = Webuser
+        fields = '__all__'  # Exclude password
+
 # Serializer for AddressType
 class AddressTypeSerializer(serializers.ModelSerializer):
     class Meta:

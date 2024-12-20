@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from cs415.views import Login
 from django.contrib import admin
 from django.urls import path, re_path
 from drf_yasg.views import get_schema_view
@@ -57,5 +58,6 @@ urlpatterns = [
     path('users/info/<int:user_info_id>', SingleUserInfoAPIView.as_view()),
     path('page/data/<int:page_data_id>', SinglePageDataAPIView.as_view()),
     path('api/webuser/', WebUserAPIView.as_view(), name='webuser'),
+    path('login/', Login.as_view()),
 ]
 

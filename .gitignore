@@ -130,6 +130,10 @@ ENV/
 env.bak/
 venv.bak/
 
+# Ignore specific paths outside project root
+../env/
+../Old env/
+
 # Spyder project settings
 .spyderproject
 .spyproject
